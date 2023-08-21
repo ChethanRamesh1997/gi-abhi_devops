@@ -1,0 +1,40 @@
+#!/bin/bash
+# Author : Chethan
+# Date : 21th August 2023
+# Version : v1
+######################
+
+# This script will report the AWS resource usage
+
+###########
+
+# The follwing are the resources used in this script
+
+################
+
+# AWS s3
+# AWS EC2
+# AWS lamda
+# AWS IAM User
+
+# List the s3 bucket
+
+set -x
+
+echo "List the s3 bucket"
+aws s3 ls
+
+#List EC2 instances
+
+echo "List EC2 instances"
+aws ec2 describe-instances | jq '.Reservations[].Instances[].InstanceId'
+
+
+#List lamda
+echo "List lamda"
+aws lambda list-functions
+
+#List of IAM user
+echo "List of IAM user"
+aws iam list-users
+
